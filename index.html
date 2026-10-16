@@ -8,7 +8,7 @@
   <meta property="og:title" content="Just Us — a chat for two">
   <meta property="og:description" content="A private little chat for Ammar and Mena — nobody else is ever in the room.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#faf7f5">
+  <meta name="theme-color" content="#090b20">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
@@ -16,21 +16,23 @@
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body data-page="chat">
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="https://menaammarpro.github.io/">&#9829; Mena &amp; Ammar</a>
-      <nav class="site-nav" aria-label="Main">
-        <a href="https://menaammarpro.github.io/">All projects</a>
-        <a href="https://menaammarpro.github.io/love-calendar/">Calendar</a>
-        <a href="https://menaammarpro.github.io/loveformymena/">Letters</a>
-      </nav>
-    </div>
+    <a class="brand" href="https://menaammarpro.github.io/">&#9829; Mena &amp; Ammar</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Main">
+      <a href="https://menaammarpro.github.io/">All projects</a>
+      <a href="https://menaammarpro.github.io/love-calendar/">Calendar</a>
+      <a href="https://menaammarpro.github.io/loveformymena/">Letters</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+    </nav>
   </header>
 
-  <main class="container">
+  <main>
     <section class="hero">
       <p class="eyebrow">Just us</p>
-      <h1>Our little chat</h1>
+      <h1>Our little <span>chat</span></h1>
       <p class="subtitle">A private room with one door &mdash; and only two keys.</p>
     </section>
 
@@ -43,8 +45,8 @@
         <input id="auth-pass" type="password" minlength="8" placeholder="the one you both know" required>
         <p id="auth-note" class="auth-note">First time here? Press <strong>Open the room</strong> to create your half of the chat.</p>
         <div class="auth-actions">
-          <button type="submit" id="auth-submit" class="btn btn-primary">Open the room</button>
-          <button type="button" id="auth-toggle" class="btn btn-ghost">I already have a key</button>
+          <button type="submit" id="auth-submit" class="button button-primary">Open the room</button>
+          <button type="button" id="auth-toggle" class="button button-ghost">I already have a key</button>
         </div>
         <p id="auth-error" class="form-error" role="alert"></p>
       </form>
@@ -56,7 +58,7 @@
           <h2 id="chat-title">Just us</h2>
           <p id="chat-status" class="chat-status">checking the room&hellip;</p>
         </div>
-        <button id="logout" class="btn btn-ghost" type="button">Leave</button>
+        <button id="logout" class="button button-ghost" type="button">Leave</button>
       </header>
 
       <div id="messages" class="messages" aria-live="polite"></div>
@@ -64,7 +66,7 @@
 
       <form id="composer" class="composer" autocomplete="off">
         <textarea id="composer-text" rows="1" maxlength="2000" placeholder="Say something sweet&hellip;"></textarea>
-        <button type="submit" id="send" class="btn btn-primary" aria-label="Send">&#10148;</button>
+        <button type="submit" id="send" class="button button-primary" aria-label="Send">&#10148;</button>
       </form>
 
       <div id="reaction-bar" class="reaction-bar" hidden>
@@ -86,10 +88,8 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>Made with love, just for you <span aria-hidden="true">&#9829;</span></p>
-      <p class="footer-note">Ammar &rarr; Mena &middot; Karachi &rarr; Bucharest</p>
-    </div>
+    <p>Made with love, just for you <span aria-hidden="true">&#9829;</span></p>
+    <p class="footer-small">Ammar &rarr; Mena &middot; Karachi &rarr; Bucharest</p>
   </footer>
 
   <button id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>&#8679;</button>
