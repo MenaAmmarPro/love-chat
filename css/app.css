@@ -1,6 +1,8 @@
 /* love-chat — page styles on top of the shared love theme */
 
-main.container {
+main {
+  width: min(1000px, calc(100% - 40px));
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -8,15 +10,16 @@ main.container {
 }
 
 .hero {
+  min-height: auto;
   text-align: center;
-  padding: 2rem 1rem 0.5rem;
+  padding: 2.4rem 1rem 0.5rem;
 }
 
 .eyebrow {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 0.75rem;
-  color: var(--muted, #8a847e);
+  color: var(--pink);
   margin: 0 0 0.4rem;
 }
 
@@ -26,15 +29,15 @@ main.container {
 
 .subtitle {
   margin: 0;
-  color: var(--muted, #8a847e);
+  color: var(--muted);
 }
 
 .panel {
-  background: var(--card, #fff);
-  border: 1px solid var(--line, #ece6e0);
+  background: var(--panel);
+  border: 1px solid var(--line);
   border-radius: 18px;
   padding: 1.25rem 1.4rem;
-  box-shadow: 0 10px 30px rgba(60, 40, 30, 0.06);
+  box-shadow: var(--shadow);
 }
 
 /* ---------- auth ---------- */
@@ -53,24 +56,27 @@ main.container {
 .auth-panel label {
   display: block;
   font-size: 0.85rem;
-  color: var(--muted, #8a847e);
+  color: var(--muted);
   margin: 0.7rem 0 0.25rem;
 }
 
 .auth-panel input {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.65rem 0.8rem;
   border-radius: 12px;
-  border: 1px solid var(--line, #ece6e0);
-  background: var(--bg, #faf7f5);
-  color: inherit;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  color: var(--text);
   font: inherit;
 }
+
+.auth-panel input::placeholder { color: var(--muted); }
 
 .auth-note {
   margin: 0.9rem 0 0;
   font-size: 0.85rem;
-  color: var(--muted, #8a847e);
+  color: var(--muted);
 }
 
 .auth-actions {
@@ -81,7 +87,7 @@ main.container {
 }
 
 .form-error {
-  color: #b3453c;
+  color: #ff8a80;
   min-height: 1.2em;
   margin: 0.6rem 0 0;
   font-size: 0.9rem;
@@ -104,7 +110,7 @@ main.container {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  border-bottom: 1px solid var(--line, #ece6e0);
+  border-bottom: 1px solid var(--line);
   padding-bottom: 0.8rem;
 }
 
@@ -116,11 +122,11 @@ main.container {
 .chat-status {
   margin: 0.15rem 0 0;
   font-size: 0.85rem;
-  color: var(--muted, #8a847e);
+  color: var(--muted);
 }
 
 .chat-status.online {
-  color: #3e8e5a;
+  color: #7ee0a8;
 }
 
 .messages {
@@ -155,22 +161,24 @@ main.container {
   cursor: pointer;
   word-break: break-word;
   white-space: pre-wrap;
+  color: var(--text);
 }
 
 .msg.mine .bubble {
-  background: #eadfce;
+  background: var(--pink-strong);
+  color: var(--bg);
   border-bottom-right-radius: 6px;
 }
 
 .msg.theirs .bubble {
-  background: var(--card, #fff);
-  border: 1px solid var(--line, #ece6e0);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
   border-bottom-left-radius: 6px;
 }
 
 .msg-meta {
   font-size: 0.72rem;
-  color: var(--muted, #8a847e);
+  color: var(--muted);
   margin-top: 0.2rem;
   display: flex;
   gap: 0.4rem;
@@ -181,8 +189,8 @@ main.container {
   display: flex;
   gap: 0.15rem;
   font-size: 0.85rem;
-  background: var(--card, #fff);
-  border: 1px solid var(--line, #ece6e0);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.05rem 0.4rem;
   margin-top: -0.45rem;
@@ -192,13 +200,13 @@ main.container {
 .day-divider {
   text-align: center;
   font-size: 0.75rem;
-  color: var(--muted, #8a847e);
+  color: var(--muted);
   margin: 0.5rem 0;
 }
 
 .typing {
   font-size: 0.85rem;
-  color: var(--muted, #8a847e);
+  color: var(--muted);
   min-height: 1.2em;
   margin: 0.1rem 0 0.3rem;
 }
@@ -207,30 +215,32 @@ main.container {
   display: flex;
   gap: 0.5rem;
   align-items: flex-end;
-  border-top: 1px solid var(--line, #ece6e0);
+  border-top: 1px solid var(--line);
   padding-top: 0.8rem;
 }
 
 .composer textarea {
   flex: 1;
   resize: none;
-  border: 1px solid var(--line, #ece6e0);
+  border: 1px solid var(--line);
   border-radius: 14px;
   padding: 0.6rem 0.8rem;
-  background: var(--bg, #faf7f5);
-  color: inherit;
+  background: var(--bg-soft);
+  color: var(--text);
   font: inherit;
   max-height: 8rem;
 }
 
-.composer .btn {
+.composer textarea::placeholder { color: var(--muted); }
+
+.composer .button {
   border-radius: 14px;
 }
 
 .reaction-bar {
   margin-top: 0.6rem;
   padding: 0.6rem 0.8rem;
-  border: 1px dashed var(--line, #ece6e0);
+  border: 1px dashed var(--line);
   border-radius: 14px;
   text-align: center;
 }
@@ -238,7 +248,7 @@ main.container {
 .reaction-bar p {
   margin: 0 0 0.35rem;
   font-size: 0.8rem;
-  color: var(--muted, #8a847e);
+  color: var(--muted);
 }
 
 .reaction-bar button {
@@ -251,7 +261,7 @@ main.container {
 }
 
 .reaction-bar button:hover {
-  background: var(--line, #ece6e0);
+  background: var(--line);
 }
 
 /* ---------- info ---------- */
@@ -259,7 +269,7 @@ main.container {
 .info-panel ul {
   margin: 0.4rem 0 0;
   padding-left: 1.2rem;
-  color: var(--muted, #8a847e);
+  color: var(--muted);
   line-height: 1.6;
 }
 
