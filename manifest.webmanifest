@@ -1,0 +1,14 @@
+{
+  "name": "Just Us — a chat for two",
+  "short_name": "Just Us",
+  "description": "A private little chat for Ammar and Mena — nobody else is ever in the room.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#faf7f5",
+  "theme_color": "#faf7f5",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/og-image.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
